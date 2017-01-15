@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<!--Import Google Icon Font-->
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!--Import materialize.css-->
+		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<!--Import jQuery before materialize.js-->
+		<title>交通資訊</title>
+		<style>
+			html, body{
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+			#map{
+				height: 88%;
+			}
+			#floating-panel{
+			position: absolute;
+			top: 5px;
+			left: 25%;
+			z-index: 5;
+			text-align: center;
+			font-family: 'Roboto','sans-serif';
+			line-height: 30px;
+			}
+		</style>
+
+		<script>
+		var train = {lat:24.3, lng:120.6};
+		function initMap(){
+		var directionsDisplay = new google.maps.DirectionsRenderer;
+		var directionsService = new google.maps.DirectionsService;
+		var station=[
+						['台中',24.1373701,120.6865698],
+						['豐原',24.2540262,120.7229123],
+						['沙鹿',24.2368786,120.5577495],
+						['台中港',24.3044174,120.6023604],
+						['大甲',24.3444497,120.6271266],
+						['成功',24.1141576,120.5901555],
+						['新烏日',24.1096986,120.6142134],
+						['潭子',24.2128046,120.7056524],
+						['后里',24.3091904,120.7328063],
+						['追分',24.120545,120.5700386],
+						['大肚',24.153941,120.5424746],
+						['龍井',24.1973781,120.5433817],
+						['清水',24.2635541,120.5692078],
+						['烏日',24.1086058,120.6224548],
+						['大慶',24.1187962,120.6478178],
+						['太原',24.1666369,120.700092],
+						['泰安',24.3312271,120.7418329],
+						['日南',24.3780753,120.6541718],
+					];
+			  
+		var map = new google.maps.Map(document.getElementById('map'), {
+			zoom: 11,
+			center: train,
+			
+		  });
+		  
+		var infoWindow = new google.maps.InfoWindow({map: map});
+			if (navigator.geolocation)
+			  {
+				navigator.geolocation.getCurrentPosition(function(position){
+				  var pos = {
+					lat: position.coords.latitude,
+					lng: position.coords.longitude
+				  };
+				  infoWindow.setPosition(pos);
+				  infoWindow.setContent('現在位置');
+				}, function() 				{
+				  handleLocationError(true, infoWindow, map.getCenter());
+				});
+			  }
+			else 				{
+				handleLocationError(false, infoWindow, map.getCenter());
+			  }
+			  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+      }
+
+		for (var i = 0; i < station.length; i++) {
+			var stations = station[i];
+			var marker = new google.maps.Marker({
+			  position: {lat: stations[1], lng: stations[2]},
+			  map: map,
+			  title: stations[0],
+			});
+}
+
+}
+
+		</script>
+		<script async defer
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGfMvEbZ7xy1-ecYRGSFXQGJtQ05N7k6k&callback=initMap"></script>
+	</head>
+	<body onload="listing()">
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+		<div id="floating-panel">
+			<a href='https://mingchin.github.io/Final_Report/home.html'
+			class="btn waves-effect waves-light" type="submit" name="action">首頁
+			<i class="material-icons right">turned_in</i></a>
+			<a href='https://mingchin.github.io/Final_Report/imformation.html'
+			class="btn waves-effect waves-light" type="submit" name="action">景點介紹
+			<i class="material-icons right">info</i></a>
+			<a href='https://mingchin.github.io/Final_Report/transport.html'
+			class="btn waves-effect waves-light" type="submit" name="action">交通資訊
+			<i class="material-icons right">room</i></a>
+			<a href='https://mingchin.github.io/Final_Report/video.html'
+			class="btn waves-effect waves-light" type="submit" name="action">相關影片
+			<i class="material-icons right">play_circle_filled</i></a>
+		</div>
+		<div id="map"></div>
+		<footer class="page-footer">
+			<div class="footer-copyright">
+			<div class="container">
+			© 2017 Copyright Text
+			</div>
+			</div>
+        </footer>
+	</body>
+</html>
