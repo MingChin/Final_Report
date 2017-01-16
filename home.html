@@ -55,19 +55,19 @@
 		 i = 0;          
             run = setInterval("f(1)",1000);
 			clearTimeout(run);
-			x = [ "http://3.bp.blogspot.com/-JEVBWHPmCLU/V-KGv6xH9nI/AAAAAAAABs0/Do8gcwot_As9Q5CD02uw1MWqULwozB_cQCK4B/s1600/IMG_20160817_183300.jpg",
-				  "https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/12321441_1421388847886663_5940257101995704402_n.jpg?oh=f9a8a5a72585ae054c4eba0db37c0081&oe=585F9E2A",
-				  "https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/12928367_1421388854553329_6576826635560366191_n.jpg?oh=1f92b62b42bc44214b058d4696d7f8f1&oe=589D2EAB",
-				  "https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/11696021_1205865819438968_566002370454887232_n.jpg?oh=8cb6f21e72ba201cad8fd9a54227df91&oe=58612767" ]
+			x = [ "https://pic.pimg.tw/playsport/1359604051-1379658451.jpg",
+				  "https://i.imgur.com/sHnbu0O.jpg",
+				  "http://www.pollster.com.tw/uploadmessage/3726%20%E5%87%BA%E5%9C%8B%E6%97%85%E9%81%8A(131121)-z(1).JPG",
+				  "http://recruit.nchu.edu.tw/present/images/schoolyard-42a.jpg" ]
 			function f(y)
 			{
 				i = i + y;
                 if(i<0)
-				document.getElementById("demo").innerHTML = "<img src='" + x[x.length-1] + "' width='70%'>" ,i=x.length-1;
+				document.getElementById("demo").innerHTML = "<img src='" + x[x.length-1] + "' width='700'>" ,i=x.length-1;
                 else if(i>x.length-1)
-                document.getElementById("demo").innerHTML = "<img src='" + x[0] + "' width='70%'>" ,i=0; 
+                document.getElementById("demo").innerHTML = "<img src='" + x[0] + "'  width='700'>" ,i=0; 
                 else
-                document.getElementById("demo").innerHTML = "<img src='" + x[i] + "' width='70%'>"
+                document.getElementById("demo").innerHTML = "<img src='" + x[i] + "'  width='700'>"
 			}
            function start()
             {
@@ -108,7 +108,7 @@
 			<button class="button button" onclick="stop();">STOP</button>
 
 		<div id="demo">
-			<img src='http://3.bp.blogspot.com/-JEVBWHPmCLU/V-KGv6xH9nI/AAAAAAAABs0/Do8gcwot_As9Q5CD02uw1MWqULwozB_cQCK4B/s1600/IMG_20160817_183300.jpg' width="300">
+			<img src='https://pic.pimg.tw/playsport/1359604051-1379658451.jpg' width="700">
 		</div>
 		</div>
 		</div>
@@ -117,10 +117,10 @@
 			  <i class="large material-icons">mode_edit</i>
 			</a>
 			<ul>
-			  <li><a class="btn-floating red"><i class="material-icons">supervisor_account</i></a></li>
-			  <li><a class="btn-floating blue"><i class="material-icons">thumb_up</i></a></li>
-			  <li><a class="btn-floating green"><i class="material-icons">perm_identity</i></a></li>
-			  <li><a class="btn-floating yellow darken-1"><i class="material-icons">info_outline</i></a></li>
+			  <li><a class="btn-floating red" href='http://mcl04.blogspot.tw/' target="blank"><i class="material-icons">supervisor_account</i></a></li>
+			  <li><a class="btn-floating blue" href='https://www.facebook.com/profile.php?id=100000466848196' target="blank"><i class="material-icons">thumb_up</i></a></li>
+			  <li><a class="btn-floating green" href='http://line.me/ti/p/Q5wOT6wpXT' target="blank"><i class="material-icons">perm_identity</i></a></li>
+			  <li><a class="btn-floating yellow darken-1" href='https://www.instagram.com/ming___chin/' target="blank"><i class="material-icons">info_outline</i></a></li>
 			</ul>
 		 </div>
 		 
