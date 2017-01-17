@@ -94,7 +94,7 @@
 			});
 			google.maps.event.addListener(marker, 'click', (function(marker, j) {
 			return function() {
-			  window.open('https://mingchin.github.io/Final_Report/imformation.html?place=' + station[j][0] ,'_blank');
+			  window.location.href = 'https://mingchin.github.io/Final_Report/imformation.html?place=' + station[j][0] ;
 			}
 		  })(marker, j));			
 }
