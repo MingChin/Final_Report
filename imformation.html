@@ -9,6 +9,7 @@
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	  <title>景點介紹</title>
+	  <link rel="shortcut icon" href="http://www.favikon.com/favikons/preview-l0v1sR.png" />
 	  <style>
 			#floating-panel{
 			position: absolute;
@@ -21,8 +22,15 @@
 			}
 		</style>
 	  <script>
+		var t = location.search;
+		var p;
+		var aryPara = [];
+		if (t.indexOf("?") != -1) {
+		var s = t.split("?");
+			p = s[1].split("=");
+		}
 		var xmlhttp = new XMLHttpRequest();
-		var url = "https://emma.pixnet.cc/mainpage/blog/categories/hot/28?format=json&page=1&per_page=7&api_version=2";
+		var url = 'https://emma.pixnet.cc/blog/articles/search?key=' + p[1] + '火車站&page=1&per_page=7&api_version=2&format=json';
 
 		xmlhttp.onreadystatechange = function() 
 		{
@@ -58,9 +66,6 @@
 			<a href='https://mingchin.github.io/Final_Report/home.html'
 			class="btn waves-effect waves-light" type="submit" name="action">首頁
 			<i class="material-icons right">turned_in</i></a>
-			<a href='https://mingchin.github.io/Final_Report/imformation.html'
-			class="btn waves-effect waves-light" type="submit" name="action">景點介紹
-			<i class="material-icons right">info</i></a>
 			<a href='https://mingchin.github.io/Final_Report/transport.html'
 			class="btn waves-effect waves-light" type="submit" name="action">交通資訊
 			<i class="material-icons right">room</i></a>
