@@ -9,6 +9,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<!--Import jQuery before materialize.js-->
 		<title>交通資訊</title>
+		<link rel="shortcut icon" href="http://www.favikon.com/favikons/preview-l0v1sR.png" />
 		<style>
 			html, body{
 				height: 100%;
@@ -85,17 +86,19 @@
                               'Error: Your browser doesn\'t support geolocation.');
       }
 
-		for (var i = 0; i < station.length; i++) {
-			var stations = station[i];
+		for (var j = 0; j < station.length; j++) {
 			var marker = new google.maps.Marker({
-			  position: {lat: stations[1], lng: stations[2]},
+			  position: {lat: station[j][1], lng: station[j][2]},
 			  map: map,
-			  title: stations[0],
+			  title: station[j][0],
 			});
+			google.maps.event.addListener(marker, 'click', (function(marker, j) {
+			return function() {
+			  window.open('https://mingchin.github.io/Final_Report/imformation.html?place=' + station[j][0] ,'_blank');
+			}
+		  })(marker, j));			
 }
-
 }
-
 		</script>
 		<script async defer
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGfMvEbZ7xy1-ecYRGSFXQGJtQ05N7k6k&callback=initMap"></script>
@@ -108,9 +111,6 @@
 			<a href='https://mingchin.github.io/Final_Report/home.html'
 			class="btn waves-effect waves-light" type="submit" name="action">首頁
 			<i class="material-icons right">turned_in</i></a>
-			<a href='https://mingchin.github.io/Final_Report/imformation.html'
-			class="btn waves-effect waves-light" type="submit" name="action">景點介紹
-			<i class="material-icons right">info</i></a>
 			<a href='https://mingchin.github.io/Final_Report/transport.html'
 			class="btn waves-effect waves-light" type="submit" name="action">交通資訊
 			<i class="material-icons right">room</i></a>
@@ -119,7 +119,8 @@
 			<i class="material-icons right">play_circle_filled</i></a>
 		</div>
 		<div id="map"></div>
-				<div class="fixed-action-btn horizontal">
+		<br/>
+		<div class="fixed-action-btn horizontal">
 			<a class="btn-floating btn-large red">
 			  <i class="large material-icons">mode_edit</i>
 			</a>
